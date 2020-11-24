@@ -1,12 +1,14 @@
-package com.cg.hms.controller;
+package com.cg.hms.entity;
 
 /*******************************************************************************************************************************
 -Author                   :     Piyush Srivastav
 -Created/Modified Date    :     26-11-2020
--Description              :      
+-Description              :     For providing Status  
 
 *******************************************************************************************************************************/
 
-public class AppointmentController {
+public enum StatusEntity {
+	
+	pending, approved, disapproved
 
 }

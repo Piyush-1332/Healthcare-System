@@ -1,4 +1,7 @@
-package com.cg.hms.controller;
+package com.cg.hms;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /*******************************************************************************************************************************
 -Author                   :     Piyush Srivastav
@@ -7,6 +10,11 @@ package com.cg.hms.controller;
 
 *******************************************************************************************************************************/
 
-public class AppointmentController {
+@SpringBootApplication
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
 
 }
