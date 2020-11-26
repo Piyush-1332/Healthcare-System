@@ -55,9 +55,7 @@ public class TestEntity {
 		this.testName = testName;
 	}
 
-	
-
-	
+		
 
 	public TestEntity(Long testId, String testName) {
 		super();
