@@ -7,6 +7,6 @@ package com.cg.hms.exception;
 
 *******************************************************************************************************************************/
 
-public class AppointmentException {
+public class AppointmentException extends Exception {
 
 }
