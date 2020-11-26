@@ -1,7 +1,5 @@
 package com.cg.hms.model;
 
-import java.math.BigInteger;
-import java.time.LocalDateTime;
 
 import com.cg.hms.entity.StatusEntity;
 
@@ -14,16 +12,16 @@ import com.cg.hms.entity.StatusEntity;
 
 
 public class AppointmentModel {
-	private BigInteger appointmentId;
+	private int appointmentId;
 	private String centreId;
 	private String userId;
 	private String testId;
-	private LocalDateTime dateTime;
+	private String dateTime;
 	private StatusEntity status;
 	
 	
-	public AppointmentModel(BigInteger appointmentId, String centreId, String userId, String testId,
-			LocalDateTime dateTime, StatusEntity status) {
+	public AppointmentModel(int appointmentId, String centreId, String userId, String testId,
+			String dateTime, StatusEntity status) {
 		super();
 		this.appointmentId = appointmentId;
 		this.centreId = centreId;
@@ -33,12 +31,12 @@ public class AppointmentModel {
 		this.testId = testId;
 	}
 
-	public BigInteger getAppointmentId() {
+	public int getAppointmentId() {
 		return appointmentId;
 	}
 
-	public void setAppointmentId(BigInteger appointmentId) {
-		this.appointmentId = appointmentId;
+	public void setAppointmentId(int string) {
+		this.appointmentId = string;
 	}
 
 	public String getCentreId() {
@@ -65,11 +63,11 @@ public class AppointmentModel {
 		this.testId = testId;
 	}
 
-	public LocalDateTime getDateTime() {
+	public String getDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(LocalDateTime dateTime) {
+	public void setDateTime(String dateTime) {
 		this.dateTime = dateTime;
 	}
 

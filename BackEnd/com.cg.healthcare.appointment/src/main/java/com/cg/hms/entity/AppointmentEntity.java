@@ -1,14 +1,13 @@
 package com.cg.hms.entity;
 
-import java.math.BigInteger;
-import java.time.LocalDateTime;
 
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.sun.istack.NotNull;
 
@@ -21,26 +20,30 @@ import com.sun.istack.NotNull;
 @Entity
 public class AppointmentEntity {
 	@Id
+	@Column(length=40)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private BigInteger appointmentId;
-
+	private int appointmentId;
+	
+	@Column(length=40)
 	@NotNull
 	private String centreId;
 
 	@NotNull
+	@Column(length=40)
 	private String userId;
 
 	@NotNull
+	@Column(length=40)
 	private String testId;
 
 	@NotNull
-	@DateTimeFormat(pattern = "yyyy/MM/ddThh:mm")
-	private LocalDateTime dateTime;
+	@Column(length=40)
+	private String dateTime;
 
 	private StatusEntity status;
 
-	public AppointmentEntity(BigInteger appointmentId, String centreId, String userId, String testId,
-			LocalDateTime dateTime, StatusEntity status) {
+	public AppointmentEntity(int appointmentId, String centreId, String userId, String testId,
+			String dateTime, StatusEntity status) {
 		super();
 		this.appointmentId = appointmentId;
 		this.centreId = centreId;
@@ -54,11 +57,11 @@ public class AppointmentEntity {
 		super();
 	}
 
-	public BigInteger getAppointmentId() {
+	public int getAppointmentId() {
 		return appointmentId;
 	}
 
-	public void setAppointmentId(BigInteger appointmentId) {
+	public void setAppointmentId(int appointmentId) {
 		this.appointmentId = appointmentId;
 	}
 
@@ -86,11 +89,11 @@ public class AppointmentEntity {
 		this.testId = testId;
 	}
 
-	public LocalDateTime getDateTime() {
+	public String getDateTime() {
 		return dateTime;
 	}
 
-	public void setDateTime(LocalDateTime dateTime) {
+	public void setDateTime(String dateTime) {
 		this.dateTime = dateTime;
 	}
 
