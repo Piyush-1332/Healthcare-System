@@ -31,6 +31,11 @@ public class AppointmentModel {
 		this.testId = testId;
 	}
 
+	public AppointmentModel() {
+		// 
+		super();
+	}
+
 	public int getAppointmentId() {
 		return appointmentId;
 	}

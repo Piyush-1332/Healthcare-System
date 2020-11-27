@@ -12,10 +12,12 @@ import javax.persistence.Id;
 import com.sun.istack.NotNull;
 
 /*******************************************************************************************************************************
- * -Author : Piyush Srivastav -Created/Modified Date : 26-11-2020 -Description :
- * Entity Class
- * 
- *******************************************************************************************************************************/
+-Author                   :     Piyush Srivastav
+-Created/Modified Date    :     26-11-2020
+-Description              :     Appointment Entity Class 
+
+*******************************************************************************************************************************/
+
 
 @Entity
 public class AppointmentEntity {

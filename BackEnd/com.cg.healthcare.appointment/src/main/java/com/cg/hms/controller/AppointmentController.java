@@ -24,9 +24,9 @@ import com.cg.hms.model.AppointmentModel;
 import com.cg.hms.service.AppointmentService;
 
 /*******************************************************************************************************************************
- * -Author : Piyush Srivastav 
- * -Created/Modified Date : 26-11-2020 
- * -Description :Appointment REST API controller
+ * -Author					 : Piyush Srivastav 
+ * -Created/Modified Date 	 : 26-11-2020 
+ * -Description 			 : Appointment REST API controller
  * 
  *******************************************************************************************************************************/
 
