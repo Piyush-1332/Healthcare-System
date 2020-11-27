@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 import com.sun.istack.NotNull;
 
@@ -32,10 +33,11 @@ public class TestEntity {
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	@Column(name = "testId")
+	@Column(name = "testId")@NotNull
 	private Long testId;
 	
-	@Column(name = "testName")@NotNull
+	@Column(name = "testName")@NotNull 
+	@Size(min = 1 , max = 15)
     private String testName;
 	
 
