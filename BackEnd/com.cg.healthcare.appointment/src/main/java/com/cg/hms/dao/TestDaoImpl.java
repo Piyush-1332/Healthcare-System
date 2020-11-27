@@ -38,12 +38,13 @@ public class TestDaoImpl implements TestDaoI{
 
 	@Override
 	public void removeTest(Long TestId) {
-		 entitymanager.remove(TestId);
+		TestEntity test = entitymanager.find(TestEntity.class,TestId);
+		entitymanager.remove(test);
 	}
 
 	@Override
 	public List<TestEntity> viewAllTest() {
-		Query q = entitymanager.createNamedQuery("from TestEntity test");
+		Query q = entitymanager.createQuery("from TestEntity",TestEntity.class);
 		return q.getResultList() ;
 	}
 
