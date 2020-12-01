@@ -1,0 +1,22 @@
+.bg1 {
+  background-image: url(https://raghealthcare.com/wp-content/uploads/2016/12/medical-hd-photo-1080p-hdwallwide.com_.jpg);
+  height: 100vh;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
+}
+.h {
+  margin-top: 130px;
+  color: black;
+  font-weight: bolds;
+  font-size: 50px;
+}
+.tex {
+  position: absolute;
+  top: 8%;
+  left: 7%;
+}
+h6 {
+  color: black;
+}
