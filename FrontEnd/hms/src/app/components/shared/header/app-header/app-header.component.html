@@ -21,7 +21,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="bookAppointment">Book Appointment</a>
+        <a class="nav-link" routerLink="bookAppointment">Book Appointment</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href=""></a>
@@ -34,16 +34,35 @@
           role="button"
           aria-haspopup="true"
           aria-expanded="false"
+          >Diagnostic Centres</a
+        >
+        <div class="dropdown-menu" id="drop" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" id="drop" routerLink="addCentre"
+            >Add Centre</a
+          >
+          <a class="dropdown-item" id="drop" routerLink="deleteCentre"
+            >Edit Centres</a
+          >
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          data-toggle="dropdown"
+          href="#"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
           >Profile</a
         >
         <div class="dropdown-menu" id="drop" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" id="drop" href="viewAppointment"
+          <a class="dropdown-item" id="drop" routerLink="viewAppointment"
             >My Appoinments</a
           >
-          <a class="dropdown-item" id="drop" href="viewAllAppointment"
+          <a class="dropdown-item" id="drop" routerLink="viewAllAppointment"
             >All Booked Appointments</a
           >
-          <a class="dropdown-item" id="drop" href="">Sign Out</a>
+          <a class="dropdown-item" id="drop" routerLink="">Sign Out</a>
         </div>
       </li>
     </ul>
