@@ -32,8 +32,8 @@ export class UpdateCentreComponent implements OnInit {
    * creating errorInfo and info of string type to pass exception
    ************************/
 
-  errorInfo: string = undefined;
-  info: string = undefined;
+  errorInfo: string;
+  info: string;
 
   constructor(
     private centreService: CentreserviceService,

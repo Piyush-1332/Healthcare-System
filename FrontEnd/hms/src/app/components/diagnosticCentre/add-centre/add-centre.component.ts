@@ -18,7 +18,8 @@ export class AddCentreComponent implements OnInit {
    * creating centres array of DiagnosticCentre type to store the centre detail 
   /***************************/
 
-  centres: DiagnosticCentre[];
+  // centres: DiagnosticCentre[];
+  centres: Array<DiagnosticCentre> = [];
 
   /***************************
    * creating centreList array of DiagnosticCentre type to store the centre detail 

@@ -15,14 +15,9 @@
           <div class="form-group">
             <label>Centre Present</label>
             <select class="form-control" formControlName="centreId" required>
-              <!-- <option *ngFor="let center of centers" [value]="center.centerId">
-                {{ center.centerName }}
-              </option> -->
-
-              <!-- Hardcoded Data  -->
-              <option value="t101">San Fransisco</option>
-              <option value="t102">New Orleans</option>
-              <option value="t103">New Jersy</option>
+              <option *ngFor="let center of centers" [value]="center.centreId">
+                {{ center.centreName }}
+              </option>
             </select>
 
             <div
