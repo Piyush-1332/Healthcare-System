@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,7 +30,7 @@ import com.cg.hms.service.AppointmentService;
  * -Description 			 : Appointment REST API controller
  * 
  *******************************************************************************************************************************/
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v1/appointment")
 public class AppointmentController {
@@ -48,7 +49,20 @@ public class AppointmentController {
 		return new ResponseEntity<List<AppointmentEntity>>(appointmentService.getAllAppointments(centreId),
 				HttpStatus.OK);
 	}
+	
+	@GetMapping("/viewmyappointment/{userId}")
+	public ResponseEntity<List<AppointmentEntity>> viewMyAppointment(@PathVariable String userId)
+			throws AppointmentNotFoundException {
+		return new ResponseEntity<List<AppointmentEntity>>(appointmentService.getAllAppointmentsByUserId(userId),
+				HttpStatus.OK);
+	}
 
+	@GetMapping("/viewallappointments")
+	public ResponseEntity<List<AppointmentEntity>> viewAllAppointments()
+			throws AppointmentNotFoundException {
+		return new ResponseEntity<List<AppointmentEntity>>(appointmentService.viewAllAppointments(),
+				HttpStatus.OK);
+	}
 	@GetMapping("/viewappointment/{appointmentId}")
 	public ResponseEntity<AppointmentEntity> viewAppointment(@PathVariable int appointmentId)
 			throws AppointmentNotFoundException {

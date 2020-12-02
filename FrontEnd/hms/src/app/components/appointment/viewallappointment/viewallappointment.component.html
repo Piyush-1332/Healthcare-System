@@ -1,0 +1,45 @@
+<br />
+<div class="container">
+  <h2 align="center" class="bg-white text-secondary">ALL APPOINTMENTS</h2>
+  <br />
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th class="text-center">Appointment Id</th>
+        <th class="text-center">User Id</th>
+        <th class="text-center">Test</th>
+        <th class="text-center">Center</th>
+        <th class="text-center">Date and Time Of Appointment</th>
+        <th class="text-center">Status</th>
+        <th class="text-center"></th>
+        <th class="text-center"></th>
+      </tr>
+    </thead>
+    <tr *ngFor="let appoint of allAppointment">
+      <td>{{ appoint.appointmentId }}</td>
+      <td>{{ appoint.userId }}</td>
+      <td>{{ appoint.testId }}</td>
+      <td>{{ appoint.centreId }}</td>
+      <td>{{ appoint.dateTime | date: "medium" }}</td>
+      <td>{{ appoint.status | uppercase }}</td>
+
+      <td>
+        <button
+          (click)="approveAppointment(appoint.appointmentId)"
+          class="btn btn-success"
+          color="green"
+        >
+          Approve
+        </button>
+      </td>
+      <td>
+        <button
+          (click)="disapproveAppointment(appoint.appointmentId)"
+          class="btn btn-danger"
+        >
+          Disapprove
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

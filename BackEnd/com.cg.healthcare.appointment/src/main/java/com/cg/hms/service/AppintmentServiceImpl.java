@@ -115,6 +115,24 @@ public class AppintmentServiceImpl implements AppointmentService {
 		return appointmentRepo.save(appointment);
 
 	}
+
+	@Override
+	public List<AppointmentEntity> getAllAppointmentsByUserId(String userId) throws AppointmentNotFoundException {
+		if (appointmentRepo.findAllByUserId(userId).isEmpty()) {
+			throw new AppointmentNotFoundException("No Appointments");
+		}
+		
+		return appointmentRepo.findAllByUserId(userId);
+	}
+
+	@Override
+	public List<AppointmentEntity> viewAllAppointments() throws AppointmentNotFoundException {
+		if (appointmentRepo.findAll().isEmpty()) {
+			throw new AppointmentNotFoundException("No Appointments");
+		}
+		
+		return appointmentRepo.findAll();
+	}
 	
 
 }

@@ -1,0 +1,23 @@
+<br /><br />
+<h2>MY APPOINTMENTS</h2>
+<br />
+<div class="container">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Centre</th>
+        <th scope="col">Test</th>
+        <th scope="col">Time</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appoint of allUserAppointment">
+        <td>{{ appoint.centreId }}</td>
+        <td>{{ appoint.testId }}</td>
+        <td>{{ appoint.dateTime | date: "medium" }}</td>
+        <td>{{ appoint.status | uppercase }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

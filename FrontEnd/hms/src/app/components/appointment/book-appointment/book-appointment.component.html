@@ -1,0 +1,99 @@
+<div id="order">
+  <div class="container">
+    <div class="w3-animate-zoom">
+      <img src="assets/icon.png" style="width: 16%" class="mx-auto d-block" />
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+        <form
+          [formGroup]="appointmentForm"
+          (ngSubmit)="makeAppointment(appointmentForm.value)"
+        >
+          <h1 align="center" class="bg-white text-primary">Book Appointment</h1>
+
+          <div class="form-group">
+            <label>Centre Present</label>
+            <select class="form-control" formControlName="centreId" required>
+              <!-- <option *ngFor="let center of centers" [value]="center.centerId">
+                {{ center.centerName }}
+              </option> -->
+
+              <!-- Hardcoded Data  -->
+              <option value="t101">San Fransisco</option>
+              <option value="t102">New Orleans</option>
+              <option value="t103">New Jersy</option>
+            </select>
+
+            <div
+              *ngIf="centreId.invalid && (centreId.dirty || centreId.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="centreId.errors.required">Center Is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Test Present</label>
+            <select class="form-control" formControlName="testId" required>
+              <option value="">Please select the Test</option>
+              <option *ngFor="let test of listOfTest" [value]="test.testId">
+                <!-- {{ test.testName }} -->
+                {{ test }}
+              </option>
+            </select>
+
+            <div
+              *ngIf="testId.invalid && (testId.dirty || testId.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="testId.errors.required">Test Is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dateTime">Seletc Appointment Date</label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              class="form-control"
+              formControlName="date"
+            />
+            <div
+              *ngIf="date.invalid && (date.dirty || date.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="date.errors.required">Date Is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dateTime">Seletc Appointment Time</label>
+            <input
+              type="time"
+              id="time"
+              name="time"
+              class="form-control"
+              formControlName="time"
+            />
+            <div
+              *ngIf="time.invalid && (time.dirty || time.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="time.errors.required">Time Is required</div>
+            </div>
+          </div>
+
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="appointmentForm.invalid"
+          >
+            Book Appointment
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<br /><br />

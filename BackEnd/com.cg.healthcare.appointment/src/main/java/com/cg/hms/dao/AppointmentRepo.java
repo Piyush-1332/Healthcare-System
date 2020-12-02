@@ -26,6 +26,9 @@ public interface AppointmentRepo extends JpaRepository<AppointmentEntity,Integer
 	@Query("FROM AppointmentEntity where centreId =:cid")
 	public List<AppointmentEntity> findAll(@Param("cid") String centreId);
 	
+	@Query("FROM AppointmentEntity where userId =:uid")
+	public List<AppointmentEntity> findAllByUserId(@Param("uid") String userId);
+	
 	
 
 

@@ -32,4 +32,8 @@ public interface AppointmentService {
 	AppointmentEntity approveAppointment(AppointmentEntity appointment, StatusEntity status) throws AppointmentAlreadyApprovedException;
 
 	AppointmentEntity disapproveAppointment(AppointmentEntity appointment, StatusEntity status) throws AppointmentAlreadyDisapprovedException;
+
+	List<AppointmentEntity> getAllAppointmentsByUserId(String userId)throws AppointmentNotFoundException;
+
+	List<AppointmentEntity> viewAllAppointments() throws AppointmentNotFoundException;
 }
