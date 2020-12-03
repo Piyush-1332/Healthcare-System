@@ -7,6 +7,8 @@ import { AddCentreComponent } from './components/diagnosticCentre/add-centre/add
 import { DeleteCentreComponent } from './components/diagnosticCentre/delete-centre/delete-centre.component';
 import { UpdateCentreComponent } from './components/diagnosticCentre/update-centre/update-centre.component';
 import { AppHomeComponent } from './components/shared/home/app-home/app-home.component';
+import { LoginComponent } from './components/userManagement/login/login/login.component';
+import { RegisterComponent } from './components/userManagement/register/register/register.component';
 
 const routes: Routes = [
   { path: '', component: AppHomeComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'addCentre', component: AddCentreComponent },
   { path: 'deleteCentre', component: DeleteCentreComponent },
   { path: 'updateCentre', component: UpdateCentreComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({

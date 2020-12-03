@@ -1,1 +1,71 @@
-<p>login works!</p>
+<div class="col-md-4"></div>
+<section class="col-md-4 mx-auto">
+  <div class="jumbotron">
+    <h2 class="test-center" style="text-align: center">Login</h2>
+    <div class="alert alert-success" *ngIf="msg != undefined">{{ msg }}</div>
+    <div
+      class="alert alert-danger"
+      *ngIf="errorMsg != undefined"
+      [innerHTML]="errorMsg"
+    >
+      {{ errorMsg }}
+    </div>
+
+    <form #frm="ngForm" (ngSubmit)="login()">
+      <div>
+        UserName:<input
+          type="text"
+          name="userName"
+          [(ngModel)]="userName"
+          placeholder="Enter your UserName"
+          required
+          #modeluserName="ngModel"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="modeluserName.invalid && modeluserName.touched"
+      >
+        User Name is required
+      </div>
+      <div
+        class="alert alert-dark"
+        *ngIf="modeluserName.invalid && modeluserName.dirty"
+      >
+        Name must start from a character.
+      </div>
+
+      <div>
+        Password:<input
+          type="password"
+          name="password"
+          [(ngModel)]="password"
+          placeholder="Enter your Password"
+          required
+          #modelpassword="ngModel"
+          minlength="8"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="modelpassword.invalid && modelpassword.touched"
+      >
+        Password is required
+      </div>
+      <div *ngIf="modelpassword.errors?.minlength">
+        Password must contain atleast 8 character.
+      </div>
+
+      <div class="mt-2 text-center">
+        <input
+          type="submit"
+          value="Login"
+          [disabled]="!frm.valid"
+          class="btn btn-success"
+        />
+      </div>
+    </form>
+  </div>
+</section>

@@ -1,1 +1,187 @@
-<p>register works!</p>
+<div class="col-md-4"></div>
+<section class="col-md-4 mx-auto">
+  <div class="jumbotron">
+    <h2 class="test-center" style="text-align: center">Registration</h2>
+    <div class="alert alert-success" *ngIf="msg != undefined">{{ msg }}</div>
+    <div
+      class="alert alert-danger"
+      *ngIf="errorMsg != undefined"
+      [innerHTML]="errorMsg"
+    >
+      {{ errorMsg }}
+    </div>
+
+    <form #frm="ngForm" (ngSubmit)="register()">
+      <div>Email:</div>
+      <div>
+        <input
+          type="email"
+          name="email"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          [(ngModel)]="user.email"
+          placeholder="Enter your Email"
+          required
+          #modelemail="ngModel"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="modelemail.invalid && modelemail.touched"
+      >
+        Email I'd is required
+      </div>
+      <small id="emailHelpBlock" class="form-text text-muted">
+        Type in small characters.
+      </small>
+
+      <div>UserName:</div>
+      <div>
+        <input
+          type="text"
+          name="userName"
+          pattern="[A-Za-z]{1,10}"
+          [(ngModel)]="user.userName"
+          placeholder="Enter your UserName"
+          required
+          #modeluserName="ngModel"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="modeluserName.invalid && modeluserName.touched"
+      >
+        UserName is required
+      </div>
+      <div
+        class="alert alert-dark"
+        *ngIf="modeluserName.invalid && modeluserName.dirty"
+      >
+        Name must start from a character.
+      </div>
+
+      <div>Password:</div>
+      <div>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="user.password"
+          placeholder="Enter your Password"
+          required
+          #modelpassword="ngModel"
+          minlength="8"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="modelpassword.invalid && modelpassword.touched"
+      >
+        Password is required
+      </div>
+      <div *ngIf="modelpassword.errors?.minlength">
+        Password must contain atleast 8 character.
+      </div>
+
+      <label for="gender"> Gender : </label>
+      <div class="card">
+        <div class="card-body">
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              [(ngModel)]="user.gender"
+              required
+              #modelgender="ngModel"
+              id="Radio1"
+              value="Male"
+            />
+            <label class="form-check-label" for="inlineRadio1"> Male </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              [(ngModel)]="user.gender"
+              required
+              #modelgender="ngModel"
+              id="Radio2"
+              value="Female"
+            />
+            <label class="form-check-label" for="inlineRadio2"> Female </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="gender"
+              [(ngModel)]="user.gender"
+              required
+              #modelgender="ngModel"
+              id="Radio3"
+              value="Others"
+            />
+            <label class="form-check-label" for="inlineRadio2"> Others </label>
+          </div>
+        </div>
+      </div>
+
+      <div>Age:</div>
+      <div>
+        <input
+          type="number"
+          name="age"
+          [(ngModel)]="user.age"
+          placeholder="Enter your Age"
+          required
+          #modelage="ngModel"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="modelage.invalid && modelage.touched"
+      >
+        Age is required
+      </div>
+
+      <div>ContactNo:</div>
+      <div>
+        <input
+          type="text"
+          name="contactNumber"
+          pattern="[6-9]{1}[0-9]{9}"
+          [(ngModel)]="user.contactNumber"
+          placeholder="Enter your Contact Number"
+          required
+          #modelcontactNumber="ngModel"
+          class="form-control"
+        />
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="modelcontactNumber.invalid && modelcontactNumber.touched"
+      >
+        Contact no is required
+      </div>
+      <div
+        class="alert alert-dark"
+        *ngIf="modelcontactNumber.invalid && modelcontactNumber.dirty"
+      >
+        Putting wrong contact number.
+      </div>
+
+      <div class="mt-2 text-center">
+        <input
+          type="submit"
+          value="Register"
+          [disabled]="!frm.valid"
+          class="btn btn-success"
+        />
+      </div>
+    </form>
+  </div>
+</section>
