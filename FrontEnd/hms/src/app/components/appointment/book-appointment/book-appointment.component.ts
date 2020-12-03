@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Appointment } from 'src/app/model/Appointment';
 import { DiagnosticCentre } from 'src/app/model/diagnostic-centre';
+import { Test } from 'src/app/model/Test';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { CentreserviceService } from 'src/app/services/centreservice.service';
+import { TestService } from 'src/app/services/testservice.service';
 
 @Component({
   selector: 'app-book-appointment',
@@ -13,15 +15,17 @@ import { CentreserviceService } from 'src/app/services/centreservice.service';
 })
 export class BookAppointmentComponent implements OnInit {
   appointments: Appointment;
-  listOfTest = ['RNA', 'Full body Test', 'Blood Test', 'Urine Test'];
+  // listOfTest = ['RNA', 'Full body Test', 'Blood Test', 'Urine Test'];
 
   centers: Array<DiagnosticCentre> = [];
+  listOfTest: Array<Test> = [];
 
   appointmentForm: FormGroup;
 
   constructor(
     private healthService: AppointmentService,
     private centreService: CentreserviceService,
+    private testService: TestService,
     private fb: FormBuilder
   ) {}
 
@@ -35,6 +39,9 @@ export class BookAppointmentComponent implements OnInit {
 
     this.centreService.getCentre().subscribe((data) => {
       this.centers = data;
+    });
+    this.testService.loadTest().subscribe((data) => {
+      this.listOfTest = data;
     });
   }
 
@@ -71,8 +78,7 @@ export class BookAppointmentComponent implements OnInit {
     this.appointments = {
       // userId:this.token.getUser().username,
       userId: '03',
-      // testId:appointmentForm.testId,
-      testId: 't103',
+      testId: appointmentForm.testId.toString(),
       centreId: appointmentForm.centreId.toString(),
       status: 'pending',
       dateTime:

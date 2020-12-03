@@ -33,8 +33,7 @@
             <select class="form-control" formControlName="testId" required>
               <option value="">Please select the Test</option>
               <option *ngFor="let test of listOfTest" [value]="test.testId">
-                <!-- {{ test.testName }} -->
-                {{ test }}
+                {{ test.testName }}
               </option>
             </select>
 

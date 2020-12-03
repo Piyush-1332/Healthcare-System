@@ -17,6 +17,10 @@ import { ViewallappointmentComponent } from './components/appointment/viewallapp
 import { AddCentreComponent } from './components/diagnosticCentre/add-centre/add-centre.component';
 import { DeleteCentreComponent } from './components/diagnosticCentre/delete-centre/delete-centre.component';
 import { UpdateCentreComponent } from './components/diagnosticCentre/update-centre/update-centre.component';
+import { AddTestComponent } from './components/test/add-test/add-test.component';
+import { ViewTestComponent } from './components/test/view-test/view-test.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -32,16 +36,21 @@ import { UpdateCentreComponent } from './components/diagnosticCentre/update-cent
     ViewallappointmentComponent,
     AddCentreComponent,
     DeleteCentreComponent,
-    UpdateCentreComponent
+    UpdateCentreComponent,
+    AddTestComponent,
+    ViewTestComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger',
+    }),
   ],
   providers: [AppointmentService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

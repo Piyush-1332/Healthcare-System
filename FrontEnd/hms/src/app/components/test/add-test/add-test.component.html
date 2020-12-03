@@ -1,0 +1,44 @@
+<br /><br /><br />
+<div class="w3-animate-zoom">
+  <img src="assets/icon.png" style="width: 8%" class="mx-auto d-block" />
+</div>
+
+<div class="d-flex justify-content-center align-items-center">
+  <div class="col-md-6">
+    <h2 class="text-center text-primary">ADD Test</h2>
+    <form (ngSubmit)="addTest()" #f="ngForm">
+      <input
+        type="text"
+        placeholder="Enter testName"
+        id="testName"
+        name="testName"
+        [(ngModel)]="test.testName"
+        class="form-control"
+        #testName="ngModel"
+        minlength="4"
+        required
+      />
+      <div
+        *ngIf="testName.invalid && (testName.dirty || testName.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="testName.errors.required">testName is required.</div>
+        <div *ngIf="testName.errors.minlength">
+          Testname must be at least 4 characters long.
+        </div>
+      </div>
+
+      <div>
+        <br />
+        <input
+          type="submit"
+          value="Add Test"
+          [disabled]="f.invalid"
+          class="btn btn-danger"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+<br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br />
