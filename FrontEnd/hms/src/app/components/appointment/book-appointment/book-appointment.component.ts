@@ -1,12 +1,15 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { userInfo } from 'os';
 import { Appointment } from 'src/app/model/Appointment';
 import { DiagnosticCentre } from 'src/app/model/diagnostic-centre';
 import { Test } from 'src/app/model/Test';
+import { User } from 'src/app/model/User';
 import { AppointmentService } from 'src/app/services/appointment.service';
 import { CentreserviceService } from 'src/app/services/centreservice.service';
 import { TestService } from 'src/app/services/testservice.service';
+import { UserService } from 'src/app/services/userservice.service';
 
 @Component({
   selector: 'app-book-appointment',
@@ -22,10 +25,15 @@ export class BookAppointmentComponent implements OnInit {
 
   appointmentForm: FormGroup;
 
+  // user: User = JSON.parse(sessionStorage.getItem('info')!);
+
+  // userId: String = this.user.userId.toString();
+
   constructor(
     private healthService: AppointmentService,
     private centreService: CentreserviceService,
     private testService: TestService,
+    private userService: UserService,
     private fb: FormBuilder
   ) {}
 
@@ -76,7 +84,6 @@ export class BookAppointmentComponent implements OnInit {
     time: number;
   }) => {
     this.appointments = {
-      // userId:this.token.getUser().username,
       userId: '03',
       testId: appointmentForm.testId.toString(),
       centreId: appointmentForm.centreId.toString(),

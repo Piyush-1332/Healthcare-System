@@ -54,7 +54,7 @@ export class DeleteCentreComponent implements OnInit {
    *              checking if centre array length is zero then load centre
    *              and set the centre into the current array
    * Created Date: 27 APR 2020
-   * Author: Princy Pandey
+   * Author: Jaspreet
    ************************/
 
   ngOnInit(): void {
@@ -73,7 +73,7 @@ export class DeleteCentreComponent implements OnInit {
    *              and delete the specific centre
    *
    * Created Date: 28 APR 2020
-   * Author: Princy Pandey
+   * Author: Jaspreet
    ************************/
 
   deleteCentre(centreId: number) {
@@ -95,7 +95,7 @@ export class DeleteCentreComponent implements OnInit {
    * return: centreId
    * Description: this method collecting the value of centreId
    * Created Date: 28 APR 2020
-   * Author: Princy Pandey
+   * Author: Jaspreet
    ************************/
 
   update(centreId: number) {

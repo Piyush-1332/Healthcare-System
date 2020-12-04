@@ -77,7 +77,7 @@ export class AddCentreComponent implements OnInit {
         console.log(error.error);
       }
     );
-    alert('Added successfully');
+
     this.ngOnInit();
   }
 
