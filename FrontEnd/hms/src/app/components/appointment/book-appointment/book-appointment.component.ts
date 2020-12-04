@@ -18,7 +18,6 @@ import { UserService } from 'src/app/services/userservice.service';
 })
 export class BookAppointmentComponent implements OnInit {
   appointments: Appointment;
-  // listOfTest = ['RNA', 'Full body Test', 'Blood Test', 'Urine Test'];
 
   centers: Array<DiagnosticCentre> = [];
   listOfTest: Array<Test> = [];
@@ -84,7 +83,7 @@ export class BookAppointmentComponent implements OnInit {
     time: number;
   }) => {
     this.appointments = {
-      userId: '03',
+      userId: sessionStorage.getItem('userId')!,
       testId: appointmentForm.testId.toString(),
       centreId: appointmentForm.centreId.toString(),
       status: 'pending',

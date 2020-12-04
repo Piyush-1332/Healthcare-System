@@ -34,6 +34,7 @@ export class AppHeaderComponent implements OnInit {
   }
   logoutUser() {
     sessionStorage.removeItem('isloggedin');
+    sessionStorage.removeItem('userId');
     this.isLogin = false;
     this.isAdmin = false;
     this.isPatient = false;

@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   msg: String;
   errorMsg: string;
 
+  userId: string = '';
+
   user: User = new User();
 
   constructor(private userService: UserService, private router: Router) {}
@@ -27,11 +29,9 @@ export class LoginComponent implements OnInit {
       });
 
     this.userService.viewUser(this.userName).subscribe((data) => {
-      this.user = data;
-      sessionStorage.setItem('userId', this.user.userId.toString());
-      console.log(this.user);
+      this.userId = data;
 
-      sessionStorage.setItem('userId', data.userId.toString());
+      sessionStorage.setItem('userId', this.userId.toString());
     });
   }
   hello(response: String) {
@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
     } else if (this.msg == 'Patient') {
       sessionStorage.setItem('isloggedin', 'Patient');
       this.errorMsg = 'Welcome patient';
+      window.location.reload();
       this.router.navigateByUrl('/');
     } else {
       sessionStorage.setItem('isloggedin', 'No');
